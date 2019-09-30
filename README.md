@@ -1,4 +1,4 @@
-The assignment page is auki->en->Offer Landing page and the offers are given as Child page.
+The assignment page is auki->test->Offer Landing page and the offers are given as Child page.
 
 I had created a new component called 'Offer'.This component is inserted in all the offer page and can be authoured in all offer page.
 
