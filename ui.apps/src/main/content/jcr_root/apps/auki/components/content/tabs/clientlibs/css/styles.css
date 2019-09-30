@@ -1,0 +1,41 @@
+.wrapper .cmp-tabs__tablist {
+	justify-content: space-around;
+    margin: auto;
+    max-width:1000px;
+
+}
+.wrapper .cmp-tabs__tab{
+     opacity:.4;
+    border-color:
+    font-weight:600;
+    font-size: 25px;
+    padding: 35px 0px 35px 0px;
+
+}
+.wrapper .cmp-tabs__tab:hover{
+    border-bottom: 4px solid #b42573  !important;
+    padding-left: 0  ;
+    padding-right: 0 ;
+    opacity:.4;
+}
+
+.wrapper .cmp-tabs__tab--active{
+	border-bottom: 4px solid #b42573 !important  ;
+
+    padding-left: 0  ;
+    padding-right: 0 ;
+    opacity:1 ;
+
+}
+
+@media (max-width:768px){
+
+	.wrapper .cmp-tabs__tabpanel {
+    	display: contents !important ;
+	}
+    .wrapper .cmp-tabs__tablist{
+		display:none;
+	}
+
+
+}
