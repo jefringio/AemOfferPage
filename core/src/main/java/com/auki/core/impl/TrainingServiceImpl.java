@@ -1,4 +1,4 @@
-package com.auki.core.services.impl;
+package com.auki.core.impl;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
