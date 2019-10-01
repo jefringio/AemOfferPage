@@ -2,33 +2,40 @@ package com.auki.core.models;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Model;	
-
-import com.auki.services.TrainingService;
-
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Optional;
 
+import com.adobe.cq.sightly.WCMUsePojo;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 
-public class Test {
+public class New extends WCMUsePojo {
 //	 @Inject 
 //	 private String image;
-	
 	@Inject 
 	private String name;
-	
 	@Inject
 	 private String dates;
-	
 	@Inject
 	private String description;
-
-	@Inject
-	private TrainingService train;
-
+	
+	
+	
+	
+//	public String getImage() {
+//		return image;
+//	}
+//	public void setImage(String image) {
+//		this.image = image;
+//	}
+	
+	
 	
 	public String getDescription() {
 		return description;
@@ -43,19 +50,19 @@ public class Test {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	 @Override  
+	    public void activate() {  
+		    Calendar date  = get("date", Calendar.class);  
+		      
+		    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+		    dates =(formatter.format(date.getTime()));  
+	    }
 	public String getDates() {
 		return dates;
 	}
-	public void setDates(String dates) {
-		this.dates = dates;
-	}
+	    
 	
-	
-	@PostConstruct
-	protected void init() {
-		
-		description = train.gettitles();
-	}
 	
 
 }
