@@ -61,7 +61,7 @@ public class New extends WCMUsePojo {
 	public String getDates() {
 		return dates;
 	}
-	    
+	   
 	
 	
 

@@ -15,13 +15,47 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 <template data-sly-template.item="${@ list, item}">
     <article>
-        <a href="${item.path @ extension='html'}" data-sly-unwrap="${!list.linkItems}">
-            <span class="cmp-list--item-title">${item.pageTitle || item.title || item.name}</span>
-            <span data-sly-test="${list.showModificationDate}" class="cmp-list--item-date">${list.dateFormatString @ format=item.lastModified}</span>
-            <div data-sly-resource="${item.path @ appendPath='/_jcr_content/root/text', resourceType='auki/components/content/text', decoration='false'}"></div>
-			<div data-sly-resource="${item.path @ appendPath='/_jcr_content/root/image', resourceType='auki/components/content/image', decoration='false'}"></div>
+        <sly data-sly-use.offers="com.auki.core.models.Offer">
 
-		</a>
+  <!-- /*  <img src="${offers.fileReference}">
+    <div>
+        <h3>${offers.title} </h3>
+        <p>${offers.description} </p>
+        <h6>${offers.startValidPeriod}  -  ${offers.endValidPeriod}</h6>
+    </div> */ -->
+
+    <sly data-sly-list = "offers.offerarraylist">
+    	<li> <img src="${offers.fileReference}"></li>
+		<li> ${offers.title} </li>
+        <li> ${offers.description} </li>
+       <li> <h6>${offers.startValidPeriod}  -  ${offers.endValidPeriod}</h6> </li>
+      		<a href = "${offers.link}">click here for more details</a>
+
+
+    </sly>
+
+</sly>s
         <span data-sly-test="${list.showDescription}" class="cmp-list--item-description">${item.description}</span>
     </article>
 </template>
+
+<sly data-sly-use.offers="com.auki.core.models.Offer">
+
+  <!-- /*  <img src="${offers.fileReference}">
+    <div>
+        <h3>${offers.title} </h3>
+        <p>${offers.description} </p>
+        <h6>${offers.startValidPeriod}  -  ${offers.endValidPeriod}</h6>
+    </div> */ -->
+
+    <sly data-sly-list = "offers.offerarraylist">
+    	<li> <img src="${offers.fileReference}"></li>
+		<li> ${offers.title} </li>
+        <li> ${offers.description} </li>
+       <li> <h6>${offers.startValidPeriod}  -  ${offers.endValidPeriod}</h6> </li>
+      		<a href = "${offers.link}">click here for more details</a>
+
+
+    </sly>
+
+</sly>

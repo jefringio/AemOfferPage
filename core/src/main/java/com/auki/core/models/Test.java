@@ -4,7 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Model;	
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.models.annotations.Model;
 
 import com.auki.services.TrainingService;
 
@@ -17,8 +18,11 @@ public class Test {
 //	 @Inject 
 //	 private String image;
 	
+	@Inject
+	private ResourceResolver resourceResolver;
+	
 	@Inject 
-	private String name;
+	private Resource name;
 	
 	@Inject
 	 private String dates;
@@ -37,12 +41,12 @@ public class Test {
 		this.description = description;
 	}
 	
-	public String getName() {
+	public Resource getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+//	public void setName(String name) {
+//		this.name = name;
+//	}
 	public String getDates() {
 		return dates;
 	}
@@ -54,7 +58,10 @@ public class Test {
 	@PostConstruct
 	protected void init() {
 		
-		description = train.gettitles();
+//		description = train.gettitles();
+		Resource resource=resourceResolver.getResource("/content/auki/test/offer-landing-page/offer-1/jcr:content/root/offer");
+		name=resource;
+		
 	}
 	
 

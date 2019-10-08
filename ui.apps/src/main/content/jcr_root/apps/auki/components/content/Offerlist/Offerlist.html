@@ -1,0 +1,25 @@
+ <sly data-sly-use.offers="com.auki.core.models.OfferModel">
+
+
+<div class="list">
+
+    <ul data-sly-list.items = "${offers.newlist}">
+
+
+    	<li class = "item">
+            <h4> ${items.name} </h4>
+
+       <div class="imageclass"> <img src="${items.fileReference}"> </div> 
+
+		<h4>${items.title}</h4>
+
+      <p> ${items.description}  </p>
+
+      <h6>${items.startValidPeriod}   -    ${items.endValidPeriod}</h6> 
+
+      <a href = "${items.links}.html">click here for more details</a>  </li>
+
+	</ul>
+
+<div>
+ </sly>
