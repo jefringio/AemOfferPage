@@ -36,20 +36,20 @@ import com.day.cq.wcm.api.Page;
 			@AttributeDefinition(name = "path value")
 			String path_value() default "/content/auki/test/offer-landing-page";
 			
-			@AttributeDefinition(name = "max offer")
-			int max_offer() default 4;
+//			@AttributeDefinition(name = "max offer")
+//			int max_offer() default 4;
 		}
 /////////
 		@Reference
 		private ResourceResolverFactory resourceResolverFactory; 
 //////		
 		private String pathValue;
-		private int maxOffer;
+//		private int maxOffer;
 	
 		@Activate
 		protected void activate(final Config config) {
 			this.pathValue= config.path_value();
-			this.maxOffer= config.max_offer();
+//			this.maxOffer= config.max_offer();
 		}
 		
 		
@@ -74,7 +74,7 @@ import com.day.cq.wcm.api.Page;
 				Page homepage = resource.adaptTo(Page.class);
 				Iterator<Page> childpage = homepage.listChildren();
 				
-				while(childpage.hasNext() && count< maxOffer) {
+				while(childpage.hasNext() ) {
 					String name = childpage.next().getName();
 					String link = "/content/auki/test/offer-landing-page/"+ name;
 					resource=resourceResolver.getResource("/content/auki/test/offer-landing-page/"+ name+"/jcr:content/root/offer");
@@ -84,6 +84,7 @@ import com.day.cq.wcm.api.Page;
 					String description = values.get("description",String.class);
 					String sdate = values.get("startValidPeriod",String.class);
 					String edate = values.get("endValidPeriod",String.class);
+				
 					
 					IndividualOffer newoffer = new IndividualOffer(image,title,description,sdate,edate,link,name);
 					offerList.add(newoffer);
